@@ -2,9 +2,9 @@
 import requests
 from subprocess import Popen, PIPE
 import os
-print os.getcwd()
+script_base = os.path.dirname(os.path.abspath(__file__))
 
-p = Popen([os.getcwd() + "/collect.sh"], stdout=PIPE)
+p = Popen([script_base + "/collect.sh"], stdout=PIPE)
 raw_output = p.communicate()[0].split('\n')
 trimmed = map(lambda entry: entry.split(), raw_output)
 filtered = filter(lambda entry: len(entry) > 0, trimmed)
