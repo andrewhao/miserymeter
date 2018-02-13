@@ -4,7 +4,7 @@ from subprocess import Popen, PIPE
 import os
 print os.getcwd()
 
-p = Popen([os.getcwd() + "/test.sh"], stdout=PIPE)
+p = Popen([os.getcwd() + "/collect.sh"], stdout=PIPE)
 raw_output = p.communicate()[0].split('\n')
 trimmed = map(lambda entry: entry.split(), raw_output)
 filtered = filter(lambda entry: len(entry) > 0, trimmed)
