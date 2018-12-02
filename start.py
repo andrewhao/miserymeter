@@ -15,7 +15,7 @@ for entry in separated:
     data[label] = entry["value"]
 print data
 
-data.update(dict(device_id='rpi2'))
+data.update(dict(device_id=os.environ['HOSTNAME']))
 
 response = requests.post('https://thermonoto.herokuapp.com/ambient_noise_updates', data=data)
 print('Posting with', data)
